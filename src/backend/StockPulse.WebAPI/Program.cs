@@ -41,7 +41,6 @@ builder.Services.AddHttpContextAccessor();
 builder.Services.AddSingleton<StockSimulatorWorker>();
 builder.Services.AddHostedService(provider => provider.GetRequiredService<StockSimulatorWorker>());
 builder.Services.AddHostedService<DatabaseHostedService>();
-builder.Services.AddHostedService<DatabaseCleaningWorker>();
 builder.Services.AddHostedService<StockPersistenceWorker>();
 builder.Services.AddHostedService<RedisRouteToSignalRWorker>();
 
