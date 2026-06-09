@@ -19,8 +19,8 @@ public class StocksController(IStockService stockService, StockSimulatorWorker s
             count = 100;
         }
 
-        var stocks = await stockService.GetRecentLogsAsync(count);
-        return Ok(stocks);
+        var logs = await stockService.GetRecentLogsAsync(count);
+        return Ok(logs);
     }
 
     [HttpPost("simulator/speed")]
