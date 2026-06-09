@@ -26,13 +26,10 @@ export class Dashboard implements OnInit, OnDestroy {
   controlForm!: FormGroup;
 
   private readonly destroy$ = new Subject<void>();
-  private pollingSub?: Subscription;
 
   ngOnInit(): void {
     this.initForm();
     this.getInitialStatus();
-
-    this.startPolling();
 
     this.loadRecentLogs();
     this.logService.startSignalRConnection();
@@ -40,7 +37,6 @@ export class Dashboard implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.stopPolling();
     this.logService.stopSignalRConnection();
     this.destroy$.next();
     this.destroy$.complete();
@@ -105,40 +101,12 @@ export class Dashboard implements OnInit, OnDestroy {
         this.isLoading.set(false);
 
         this.loadRecentLogs();
-
-        if (res.currentSpeed !== 'Stopped') {
-          this.startPolling();
-        } else {
-          this.stopPolling();
-        }
       },
       error: (err) => {
         this.isLoading.set(false);
         console.error('Failed to update speed via service', err);
       }
     });
-  }
-
-  private startPolling(): void {
-    this.stopPolling();
-
-    this.pollingSub = timer(0, 1000)
-      .pipe(
-        switchMap(() => this.logService.getLogStats()),
-        takeUntil(this.destroy$)
-      )
-      .subscribe({
-        next: (stats) => {
-          this.logStats.set(stats);
-        },
-        error: (err) => console.error('Stats polling error:', err)
-      });
-  }
-
-  private stopPolling(): void {
-    if (this.pollingSub) {
-      this.pollingSub.unsubscribe();
-    }
   }
 
   private mapSpeedStringToEnum(speedStr: string): number {
