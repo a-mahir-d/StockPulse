@@ -38,7 +38,7 @@ export class StockService {
       .then(() => console.log('[SignalR] Connected to StockHub successfully using AuthService token.'))
       .catch(err => console.error('[SignalR] Error while starting connection:', err));
 
-    this.hubConnection.on('ReceiveTick', (stockTick: StockTick) => {
+    this.hubConnection.on('ReceiveStockTick', (stockTick: StockTick) => {
       this.liveLogSource.next(stockTick);
     });
   }
