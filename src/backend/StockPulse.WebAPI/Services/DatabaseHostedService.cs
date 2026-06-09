@@ -14,18 +14,13 @@ public sealed class DatabaseHostedService(IOptions<DbSettings> options, ILogger<
     {
         logger.LogInformation("[Database Initializer] Checking database schema on startup...");
 
-        const string createTableQuery = @"
-            CREATE TABLE IF NOT EXISTS Logs (
-                Id SERIAL PRIMARY KEY,
-                Level INT NOT NULL,
-                Message TEXT NOT NULL,
-                SourceService VARCHAR(100) NOT NULL,
-                Timestamp TIMESTAMPTZ NOT NULL DEFAULT NOW()
+        const string createTableQuery = """
+            CREATE TABLE IF NOT EXISTS Stocks (
+                Symbol VARCHAR(10) PRIMARY KEY,
+                Price DECIMAL(18, 2) NOT NULL,
+                LastUpdated TIMESTAMP NOT NULL
             );
-
-            CREATE INDEX IF NOT EXISTS IX_Logs_Timestamp ON Logs(Timestamp DESC);
-            CREATE INDEX IF NOT EXISTS IX_Logs_Level ON Logs(Level);
-        ";
+        """;
 
         try
         {
