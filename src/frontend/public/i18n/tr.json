@@ -43,6 +43,7 @@
     "colTimestamp": "Zaman Damgası",
     "colSymbol": "Sembol",
     "colPrice": "Fiyat",
-    "noLogsYet": "Henüz canlı log akışı başlamadı. Simülasyonu başlatabilirsiniz."
+    "noLogsYet": "Henüz canlı log akışı başlamadı. Simülasyonu başlatabilirsiniz.",
+    "shown": "Gösterilen"
   }
 }

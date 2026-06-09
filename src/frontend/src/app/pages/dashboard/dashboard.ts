@@ -1,4 +1,4 @@
-import { Component, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { LanguageService } from '../../services/language.service';
 import { CommonModule } from '@angular/common';
@@ -22,6 +22,18 @@ export class Dashboard implements OnInit, OnDestroy {
 
   logStats = signal<Record<string, number>>({});
   stockTicksList = signal<StockTick[]>([]);
+
+  selectedSymbol = signal<string>('');
+
+  filteredStockTicks = computed(() => {
+    const filter = this.selectedSymbol().toUpperCase().trim();
+    if (!filter) {
+      return this.stockTicksList();
+    }
+    return this.stockTicksList().filter(tick => 
+      tick.symbol.toUpperCase().includes(filter)
+    );
+  });
 
   controlForm!: FormGroup;
 

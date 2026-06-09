@@ -43,6 +43,7 @@
     "colTimestamp": "Timestamp",
     "colSymbol": "Symbol",
     "colPrice": "Price",
-    "noLogsYet": "No live log stream yet. You can start the simulation."
+    "noLogsYet": "No live log stream yet. You can start the simulation.",
+    "shown": "Shown"
   }
 }
