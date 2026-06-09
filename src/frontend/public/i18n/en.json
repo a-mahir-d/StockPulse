@@ -44,6 +44,7 @@
     "colSymbol": "Symbol",
     "colPrice": "Price",
     "noLogsYet": "No live log stream yet. You can start the simulation.",
-    "shown": "Shown"
+    "shown": "Shown",
+    "filterPlaceholder": "Filter Symbol... (e.g.: BTC)"
   }
 }

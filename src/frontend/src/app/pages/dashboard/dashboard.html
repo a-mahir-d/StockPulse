@@ -95,8 +95,8 @@
                         type="text" 
                         [value]="selectedSymbol()" 
                         (input)="selectedSymbol.set($any($event.target).value)"
-                        placeholder="Sembol filtrele... (Örn: BTC)" 
-                        class="w-full sm:w-48 px-3.5 py-1.5 text-sm font-semibold rounded-xl border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-400 transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-xs"
+                        [placeholder]="langService.translate('dashboard.filterPlaceholder')"
+                        class="w-full sm:w-64 px-3.5 py-1.5 text-sm font-semibold rounded-xl border bg-white dark:bg-slate-900 border-slate-200 dark:border-slate-800 focus:outline-hidden focus:ring-2 focus:ring-indigo-600 dark:focus:ring-indigo-400 transition-all placeholder-slate-400 dark:placeholder-slate-500 shadow-xs"
                     />
                     <span class="text-xs font-bold px-2.5 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-500 whitespace-nowrap">
                         {{ langService.translate('dashboard.shown') }}: {{ filteredStockTicks().length }} / {{ stockTicksList().length }}
