@@ -26,7 +26,11 @@ builder.Services.AddSingleton<DapperContext>();
 builder.Services.AddSingleton<IConnectionMultiplexer>(sp =>
 {
     var redisSettings = builder.Configuration.GetSection("Redis").Get<RedisSettings>() ?? throw new InvalidOperationException("RedisSettings configuration is missing.");
-    return ConnectionMultiplexer.Connect(redisSettings.ConnectionString);
+    var options = ConfigurationOptions.Parse(redisSettings.ConnectionString);
+    options.AbortOnConnectFail = false;
+    options.ConnectTimeout = 5000;
+
+    return ConnectionMultiplexer.Connect(options);
 });
 
 builder.Services.AddScoped<IJwtService, JwtService>();
