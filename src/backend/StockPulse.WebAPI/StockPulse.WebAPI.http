@@ -1,0 +1,6 @@
+@StockPulse.WebAPI_HostAddress = http://localhost:5034
+
+GET {{StockPulse.WebAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
