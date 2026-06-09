@@ -1,0 +1,48 @@
+{
+    "navbar": {
+    "login": "Giriş Yap",
+    "logout": "Çıkış Yap",
+    "dashboard": "Panel"
+  },
+  "footer": {
+    "copyright": "Tüm hakları saklıdır."
+  },
+  "home": {
+    "subtitle": "Servisten arayüze, piyasanın nabzını tutun; tüm fiyat hareketlerini milisaniyeler içinde, canlı ve kesintisiz izleyin.",
+    "sw": "İzlemeye Başla"
+  },
+  "login": {
+    "title": "Tekrar Hoş Geldiniz",
+    "subtitle": "Hesabınıza erişmek için bilgilerinizi girin",
+    "emailLabel": "E-posta Adresi",
+    "emailPlaceholder": "isim@stockpulse.com",
+    "passwordLabel": "Şifre",
+    "submitCta": "Giriş Yap",
+    "errorEmail": "Lütfen geçerli bir e-posta adresi girin.",
+    "errorPassword": "Şifre alanı zorunludur (en az 6 karakter).",
+    "errorInvalid": "E-posta veya şifre hatalı.",
+    "demoCredentialsPrefix": "Giriş bilgilerine sahip değilseniz",
+    "demoCredentialsSuffix": "adresinden temin edebilirsiniz."
+  },
+  "dashboard": {
+    "title": "Log İzleme Paneli",
+    "statusLabel": "Simülatör Durumu",
+    "speedLabel": "Akış Hızı",
+    "speedStopped": "Durduruldu",
+    "speedSlow": "Yavaş (Saniyede 1 fiyat kontrolü)",
+    "speedMedium": "Orta (Saniyede 3 fiyat kontrolü)",
+    "speedFast": "Hızlı (Saniyede 5 fiyat kontrolü)",
+    "countLabel": "Görüntülenecek Log Sayısı",
+    "countHint": "0 ile 500 arasında bir değer girin",
+    "actionBtn": "Simülasyonu Başlat / Güncelle",
+    "statusActive": "Aktif",
+    "statusIdle": "Beklemede",
+    "statsTitle": "Sistem İstatistikleri (Canlı)",
+    "noData": "Henüz log verisi bulunmuyor.",
+    "tableTitle": "Canlı Log Akışı",
+    "colTimestamp": "Zaman Damgası",
+    "colSymbol": "Sembol",
+    "colPrice": "Fiyat",
+    "noLogsYet": "Henüz canlı log akışı başlamadı. Simülasyonu başlatabilirsiniz."
+  }
+}
